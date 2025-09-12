@@ -20,60 +20,53 @@
 
   <!-- Contenido principal -->
   <main class="main-content">
-
-    <!-- Lista de Rutinas -->
-    <section class="lista-rutinas">
-      <h2>Rutina de Hoy</h2>
-
-      <div class="tarjeta-rutina">
-        <h3>Prensa</h3>
-        <p>Repeticiones: 12</p>
-        <p>Pesos: 80 - 100 - 120 - 130</p>
-        <p>Series: 4</p>
-        <p>Descanso: 120 seg</p>
-        <div class="botones-ejercicio">
-          <button class="editar-btn">Editar</button>
-          <button class="eliminar-btn">Eliminar</button>
-        </div>
-    </div>
-      <!-- Más tarjetas de ejercicios aquí -->
+    
+  <!-- Editor de Rutina (formulario para agregar o editar) -->
+    <section class="editor-rutina">
+      <h2>Agregar / Editar Ejercicio</h2>
+      <form id="form-ejercicio">
+        <input type="text" name="nombre" placeholder="Nombre del ejercicio" required>
+        <input type="text" name="repeticiones" placeholder="Repeticiones" required>
+        <input type="text" name="pesos" placeholder="Pesos" required>
+        <input type="number" name="series" placeholder="Series" required>
+        <input type="text" name="descanso" placeholder="Descanso" required>
+        <!-- <input type="number" placeholder="Vueltas" required> -->
+        <button type="submit">Añadir Ejercicio</button>
+      </form>
     </section>
+    
+<!-- Lista de Rutinas -->
+<section class="lista-rutinas">
+  <h2>Rutina de Hoy</h2>
+
+  <ul id="lista-ejercicios">
+    <!-- Cada ejercicio se agregará aquí como <li class="tarjeta-rutina"> -->
+  </ul>
+</section>
+
 
     <!-- Botón para guardar toda la lista como rutina, arriba del editor -->
     <button id="btn-guardar-rutina" style="margin: 1rem 2rem; padding: 0.6rem 1rem; border-radius:6px; border:none; background-color:#00B894; color:white; font-weight:bold; cursor:pointer;">
         Guardar Rutina Completa
     </button>
 
-    <!-- Editor de Rutina (formulario para agregar o editar) -->
-    <section class="editor-rutina">
-      <h2>Agregar / Editar Ejercicio</h2>
-      <form id="form-ejercicio">
-        <input type="text" placeholder="Nombre del ejercicio" required>
-        <input type="text" placeholder="Repeticiones" required>
-        <input type="text" placeholder="Pesos" required>
-        <input type="number" placeholder="Series" required>
-        <input type="text" placeholder="Descanso" required>
-        <!-- <input type="number" placeholder="Vueltas" required> -->
-        <button type="submit">Añadir Ejercicio</button>
-      </form>
-    </section>
 
     <!-- Modal de edición -->
-    <div id="modal-editar" class="modal">
-      <div class="modal-contenido">
-        <h3>Editar Ejercicio</h3>
-        <form id="form-editar">
-          <input type="text" placeholder="Nombre del ejercicio" required>
-          <input type="number" placeholder="Series" required>
-          <input type="number" placeholder="Repeticiones" required>
-          <input type="text" placeholder="Pesos" required>
-          <input type="text" placeholder="Descanso" required>
-          <input type="number" placeholder="Vueltas" required>
-          <button type="submit">Guardar Cambios</button>
-          <button type="button" id="btn-cerrar-modal">Cancelar</button>
-        </form>
-      </div>
-    </div>
+    <div id="modal-editar">
+  <div class="modal-contenido">
+    <button id="cerrar-modal">&times;</button>
+    <h2>Editar Ejercicio</h2>
+    <form id="form-editar">
+      <input type="text" name="nombre" placeholder="Nombre del ejercicio" required>
+      <input type="text" name="repeticiones" placeholder="Repeticiones" required>
+      <input type="text" name="pesos" placeholder="Pesos" required>
+      <input type="number" name="series" placeholder="Series" required>
+      <input type="text" name="descanso" placeholder="Descanso" required>
+      <button type="submit" id="guardar-cambios">Guardar Cambios</button>
+    </form>
+  </div>
+</div>
+
 
     <!-- Sección de Historial -->
     <section class="historial" id="historial">

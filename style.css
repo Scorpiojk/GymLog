@@ -171,58 +171,115 @@ body {
   background-color: #ff7c50;
 }
 
-/* Modal de edición */
-.modal {
-  display: none; /* se activa con JS */
+/* Fondo semitransparente que cubre toda la pantalla */
+#modal-editar {
+  display: none; /* oculto por defecto */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(30,30,47,0.8);
+  background-color: rgba(0, 0, 0, 0.7); /* fondo oscuro */
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
+/* Caja del modal */
 .modal-contenido {
   background-color: var(--fondo-secundario);
-  padding: 2rem;
-  border-radius: 10px;
+  padding: 2.5rem;
+  border-radius: 12px;
   width: 90%;
-  max-width: 400px;
-}
-
-#form-editar {
+  max-width: 500px; /* más grande */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.2rem; /* más espacio entre elementos */
+  position: relative;
+  text-align: center;
 }
 
-#form-editar input {
-  padding: 0.5rem;
-  border-radius: 6px;
+/* Form inputs */
+#form-editar{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Título del modal */
+.modal-contenido h2 {
+  margin: 0;
+  color: var(--acento);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Inputs */
+.modal-contenido input {
+  padding: 0.8rem;
   border: 1px solid var(--borde);
+  font-size: 1rem;
   background-color: var(--fondo-principal);
   color: var(--texto-principal);
+  width: 100%;
+  text-align: left;
 }
 
-#form-editar button {
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: none;
-  background-color: var(--acento);
+/* Botón guardar */
+#guardar-cambios {
+  width: 80%;
+  margin: auto;
+  background-color: var(--exito); /* de la paleta */
   color: var(--texto-principal);
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
   cursor: pointer;
-  transition: background 0.3s;
+  font-size: 1rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+  margin-top: 1rem;
 }
 
-#btn-cerrar-modal {
-  background-color: #E74C3C;
+
+
+/* Placeholder alineado a la izquierda */
+.modal-contenido input::placeholder {
+  text-align: left;
+  color: var(--texto-secundario);
+  opacity: 0.8;
 }
 
-#btn-cerrar-modal:hover {
-  background-color: #FF5C5C;
+/* Quitar background blanco de autocompletado en Chrome */
+.modal-contenido input:-webkit-autofill,
+.modal-contenido input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--fondo-principal) inset !important;
+  -webkit-text-fill-color: var(--texto-principal) !important;
+  caret-color: var(--texto-principal);
 }
+
+#guardar-cambios:hover {
+  background-color: #009f7a; /* un tono más oscuro del éxito */
+  transform: scale(1.03);
+}
+
+/* Botón cerrar (X) */
+#cerrar-modal {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--texto-secundario);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+#cerrar-modal:hover {
+  color: var(--acento);
+}
+
 
 /* Historial */
 .historial h2 {
