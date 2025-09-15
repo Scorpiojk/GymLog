@@ -3,84 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GymLog - Seguimiento de Rutinas</title>
-  <link rel="icon" type="image/png" href="assets\Logotipo_Gimnasio_Moderno_Minimalista_Naranja-removebg-preview (1).png">
+  <title>GymLog - Workout Tracker</title>
+  <link rel="icon" type="image/png" href="assets/Logotipo_Gimnasio_Moderno_Minimalista_Naranja-removebg-preview (1).png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Encabezado -->
+  <!-- Encabezado fijo -->
   <header class="header">
     <h1>GymLog</h1>
-    <nav>
-      <button id="btn-rutinas">Rutinas</button>
-      <button id="btn-agregar">Agregar Rutina</button>
-      <button id="btn-historial">Historial</button>
-    </nav>
   </header>
 
   <!-- Contenido principal -->
   <main class="main-content">
     
-  <!-- Editor de Rutina (formulario para agregar o editar) -->
-    <section class="editor-rutina">
-      <h2>Agregar / Editar Ejercicio</h2>
-      <form id="form-ejercicio">
-        <input type="text" name="nombre" placeholder="Nombre del ejercicio" required>
-        <input type="text" name="repeticiones" placeholder="Repeticiones" required>
-        <input type="text" name="pesos" placeholder="Pesos" required>
-        <input type="number" name="series" placeholder="Series" required>
-        <input type="text" name="descanso" placeholder="Descanso" required>
-        <!-- <input type="number" placeholder="Vueltas" required> -->
-        <button type="submit">Añadir Ejercicio</button>
+    <!-- Routine Editor -->
+    <section class="routine-editor">
+      <h2>Agregar Ejercicio</h2>
+      <form id="form-exercise">
+        <input type="text" name="name" placeholder="Ejercicio">
+        <input type="text" name="reps" placeholder="Repeticiones" required>
+        <input type="text" name="weight" placeholder="Peso">
+        <input type="number" name="sets" placeholder="Series" required>
+        <input type="text" name="rest" placeholder="Descanso">
+        <button type="submit">Agregar Ejercicio</button>
       </form>
     </section>
     
-<!-- Lista de Rutinas -->
-<section class="lista-rutinas">
-  <h2>Rutina de Hoy</h2>
+    <!-- Routine List -->
+    <section class="routine-list">
+      <h2>Ejercicios De hoy</h2>
+      <ul id="exercise-list"></ul>
+    </section>
 
-  <ul id="lista-ejercicios">
-    <!-- Cada ejercicio se agregará aquí como <li class="tarjeta-rutina"> -->
-  </ul>
-</section>
+    <!-- Guardar rutina -->
+    <button id="btn-save-routine">Guardar rutina completa</button>
 
+    <!-- Edit Modal -->
+    <div id="edit-modal">
+      <div class="modal-content">
+        <button id="close-modal">&times;</button>
+        <h2>Editar Ejercicio</h2>
+        <form id="edit-form">
+          <input type="text" name="name" placeholder="Ejercicio" required>
+          <input type="text" name="reps" placeholder="Repeticiones" required>
+          <input type="text" name="weight" placeholder="Peso">
+          <input type="number" name="sets" placeholder="Series" required>
+          <input type="text" name="rest" placeholder="Descanso" required>
+          <button type="submit" id="save-changes">Guardar cambios</button>
+        </form>
+      </div>
+    </div>
 
-    <!-- Botón para guardar toda la lista como rutina, arriba del editor -->
-    <button id="btn-guardar-rutina" style="margin: 1rem 2rem; padding: 0.6rem 1rem; border-radius:6px; border:none; background-color:#00B894; color:white; font-weight:bold; cursor:pointer;">
-        Guardar Rutina Completa
-    </button>
-
-
-    <!-- Modal de edición -->
-    <div id="modal-editar">
-  <div class="modal-contenido">
-    <button id="cerrar-modal">&times;</button>
-    <h2>Editar Ejercicio</h2>
-    <form id="form-editar">
-      <input type="text" name="nombre" placeholder="Nombre del ejercicio" required>
-      <input type="text" name="repeticiones" placeholder="Repeticiones" required>
-      <input type="text" name="pesos" placeholder="Pesos" required>
-      <input type="number" name="series" placeholder="Series" required>
-      <input type="text" name="descanso" placeholder="Descanso" required>
-      <button type="submit" id="guardar-cambios">Guardar Cambios</button>
-    </form>
-  </div>
-</div>
-
-
-    <!-- Sección de Historial -->
-    <section class="historial" id="historial">
-      <h2>Historial de Entrenamientos</h2>
-      <p>Aquí se mostrarán los entrenamientos anteriores.</p>
-      <!-- Datos dinámicos con JS -->
+    <!-- History -->
+    <section class="history" id="history">
+      <h2>Historial</h2>
+      <p>Tus rutinas guardadas aparecerán aquí.</p>
     </section>
 
   </main>
 
-  <!-- Pie de página -->
-  <footer class="footer">
-    <p>&copy; 2025 GymLog</p>
-  </footer>
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <button id="btn-routines">🏋️ EJERCICIOS</button>
+    <button id="btn-add">➕ </button>
+    <button id="btn-history">📜 HISTORIAL</button>
+  </nav>
 
   <script src="app.js"></script>
 </body>
